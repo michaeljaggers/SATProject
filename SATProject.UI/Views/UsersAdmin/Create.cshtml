@@ -1,9 +1,9 @@
 ﻿@model SATProject.UI.Models.RegisterViewModel
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create User";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h1 class="mt-4">@ViewBag.Title</h1>
 
 @using (Html.BeginForm("Create", "UsersAdmin", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
