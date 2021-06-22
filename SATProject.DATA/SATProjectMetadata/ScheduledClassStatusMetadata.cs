@@ -12,7 +12,7 @@ namespace SATProject.DATA
         public int SCSID { get; set; }
 
         [Required]
-        [Display(Name = "SCS Name")]
+        [Display(Name = "Class Status")]
         [StringLength(50, ErrorMessage = "Maximum length is 50 characters.")]
         public string SCSName { get; set; }
     }

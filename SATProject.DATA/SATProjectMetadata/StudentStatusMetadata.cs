@@ -12,11 +12,11 @@ namespace SATProject.DATA
         public int SSID { get; set; }
 
         [Required]
-        [Display(Name = "SS Name")]
+        [Display(Name = "Status")]
         [StringLength(30, ErrorMessage = "Maximum length is 30 characters.")]
         public string SSName { get; set; }
 
-        [Display(Name = "SS Description")]
+        [Display(Name = "Description")]
         [StringLength(250, ErrorMessage = "Maximum length is 250 characters.")]
         public string SSDescription { get; set; }
     }
