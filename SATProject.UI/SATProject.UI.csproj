@@ -187,6 +187,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Theme.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -195,6 +196,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\scripts.js" />
     <Content Include="_Archive\401.html" />
     <Content Include="_Archive\404.html" />
     <Content Include="_Archive\500.html" />
@@ -236,7 +238,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_OriginalLayout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -271,6 +273,7 @@
     <Content Include="Views\RolesAdmin\Delete.cshtml" />
     <Content Include="Views\RolesAdmin\Create.cshtml" />
     <Content Include="Views\Account\DisplayEmail.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
