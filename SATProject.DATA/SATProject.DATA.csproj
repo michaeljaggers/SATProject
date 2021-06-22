@@ -50,7 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Cours.cs">
       <DependentUpon>SATProjectModel.tt</DependentUpon>
     </Compile>
@@ -58,6 +57,12 @@
       <DependentUpon>SATProjectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SATProjectMetadata\CoursMetadata.cs" />
+    <Compile Include="SATProjectMetadata\EnrollmentMetadata.cs" />
+    <Compile Include="SATProjectMetadata\ScheduledClassMetadata.cs" />
+    <Compile Include="SATProjectMetadata\ScheduledClassStatusMetadata.cs" />
+    <Compile Include="SATProjectMetadata\StudentMetadata.cs" />
+    <Compile Include="SATProjectMetadata\StudentStatusMetadata.cs" />
     <Compile Include="SATProjectModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
