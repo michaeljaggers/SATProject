@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -32,94 +34,80 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Dashboard
+                        <div class="sb-sidenav-menu-heading">Menu</div>
+                        <a class="nav-link" href=@Url.Action("Index", "Home")>
+                            <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
+                            Home
                         </a>
-                        <div class="sb-sidenav-menu-heading">Interface</div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                            Layouts
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        <a class="nav-link" href=@Url.Action("Contact", "Home")>
+                            <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
+                            Contact
                         </a>
-                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                            </nav>
-                        </div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                            Pages
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                    Authentication
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="login.html">Login</a>
-                                        <a class="nav-link" href="register.html">Register</a>
-                                        <a class="nav-link" href="password.html">Forgot Password</a>
-                                    </nav>
-                                </div>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                    Error
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="401.html">401 Page</a>
-                                        <a class="nav-link" href="404.html">404 Page</a>
-                                        <a class="nav-link" href="500.html">500 Page</a>
-                                    </nav>
-                                </div>
-                            </nav>
-                        </div>
-                        <div class="sb-sidenav-menu-heading">Addons</div>
-                        <a class="nav-link" href="charts.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Charts
-                        </a>
-                        <a class="nav-link" href="tables.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Tables
-                        </a>
+                        @if (Request.IsAuthenticated && (User.IsInRole("Scheduling") || User.IsInRole("Admin")))
+                        {
+                            <a class="nav-link" href=@Url.Action("Index", "Students")>
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-graduate"></i></div>
+                                Students
+                            </a>
+                            <a class="nav-link" href=@Url.Action("Index", "Enrollments")>
+                                <div class="sb-nav-link-icon"><i class="fas fa-school"></i></div>
+                                Enrollments
+                            </a>
+                            <a class="nav-link" href=@Url.Action("Index", "ScheduledClasses")>
+                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
+                                Scheduled Classes
+                            </a>
+                        }
+                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <a class="nav-link" href=@Url.Action("Index", "Cours")>
+                                <div class="sb-nav-link-icon"><i class="fas fa-bookmark"></i></div>
+                                Courses
+                            </a>
+                            <a class="nav-link" href=@Url.Action("Index", "StudentStatus")>
+                                <div class="sb-nav-link-icon"><i class="fas fa-graduation-cap"></i></div>
+                                Student Statuses
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Administration</div>
+                            <a class="nav-link" href=@Url.Action("Index", "UsersAdmin")>
+                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                                Users Admin
+                            </a>
+                            <a class="nav-link" href=@Url.Action("Index", "RolesAdmin")>
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-shield"></i></div>
+                                Roles Admin
+                            </a>
+                        }
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    Start Bootstrap
+                    @User.Identity.GetUserName()
                 </div>
             </nav>
         </div>
         <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
 
-            @RenderBody()
+                        @RenderBody()
 
+                </div>
+            </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
+                        <div class="text-muted">&copy; Force.edu @DateTime.Now.Year</div>
                     </div>
                 </div>
             </footer>
         </div>
-    </div>
-    @Scripts.Render("~/bundles/jquery")
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    @Scripts.Render("~/bundles/js")
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    @RenderSection("scripts", required: false)
+            </div>
+            @Scripts.Render("~/bundles/jquery")
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+            @Scripts.Render("~/bundles/js")
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+            @RenderSection("scripts", required: false)
 </body>
 </html>

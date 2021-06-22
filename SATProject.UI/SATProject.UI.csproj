@@ -177,7 +177,7 @@
     <Compile Include="Controllers\ScheduledClassStatusController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\StudentStatusController.cs" />
-    <Compile Include="Controllers\UserAdminController.cs" />
+    <Compile Include="Controllers\UsersAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

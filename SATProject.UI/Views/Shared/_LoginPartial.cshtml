@@ -6,7 +6,7 @@
         @Html.AntiForgeryToken()
 
         <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "dropdown-item" })
+            @Html.ActionLink("Manage Account", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "dropdown-item" })
         </li>
         <li><hr class="dropdown-divider" /></li>
         <li><a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
