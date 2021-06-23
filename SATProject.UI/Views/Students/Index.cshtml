@@ -7,8 +7,11 @@
 <h1 class="mt-4">@ViewBag.Title</h1>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
+    </p>
 
 <table class="table" id="dataTable">
     <thead>
@@ -25,8 +28,8 @@
             <th>
                 @Html.DisplayNameFor(model => model.StudentStatus.SSName)
             </th>
-            <th>Actions</th>
-        </tr>
+                <th>Actions</th>
+            </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
@@ -46,9 +49,15 @@
                     @Html.DisplayFor(modelItem => item.StudentStatus.SSName)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) @:|
+                    }
+                    @Html.ActionLink("Details", "Details", new { id = item.StudentId })
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        @:| @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+                    }
                 </td>
             </tr>
         }
