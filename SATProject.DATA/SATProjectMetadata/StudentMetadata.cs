@@ -50,10 +50,19 @@ namespace SATProject.DATA
         [StringLength(100, ErrorMessage = "Maximum length is 100 characters.")]
         public string PhotoUrl { get; set; }
 
+        [Display(Name = "Student Name")]
+        public string fullName { get; }
+
         [Required]
         public int SSID { get; set; }
     }
 
     [MetadataType(typeof(StudentMetadata))]
-    public partial class Student { }
+    public partial class Student
+    {
+        public string fullName
+        {
+            get { return FirstName + " " + LastName; }
+        }
+    }
 }

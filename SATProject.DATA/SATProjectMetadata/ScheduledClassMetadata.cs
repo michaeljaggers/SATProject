@@ -35,8 +35,18 @@ namespace SATProject.DATA
 
         [Required]
         public int SCSID { get; set; }
+
+        [Display(Name = "Class Info")]
+        public string classInfo { get; }
     }
 
     [MetadataType(typeof(ScheduledClassMetadata))]
-    public partial class ScheduledClass { }
+    public partial class ScheduledClass
+    {
+
+        public string classInfo
+        {
+            get { return String.Format($"Start Date: {StartDate:d} Course: {CourseId} Location: {Location}"); }
+        }
+    }
 }
