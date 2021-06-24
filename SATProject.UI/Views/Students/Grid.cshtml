@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SATProject.DATA.Student>
+
+@{
+    ViewBag.Title = "Student Grid View";
+}
+
+<h1 class="mt-4">@ViewBag.Title</h1>
+
+
+<a href=@Url.Action("Index", "Students") class="btn btn-primary" style="width: 120px; float: right;">List View</a>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="container mt-5">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="~/Content/StudentImages/t_@item.PhotoUrl" alt="@item.FirstName" style="display: block; margin: 10px auto;" />
+                    <h2 class="text-center">@Html.DisplayFor(modelItem => item.FirstName) <br /> @Html.DisplayFor(modelItem => item.LastName)</h2>
+                    <h4 class="text-center">@Html.DisplayFor(modelItem => item.Major)</h4>
+                    <p class="text-center">@Html.DisplayFor(modelItem => item.StudentStatus.SSName)</p>
+                    <p class="text-center">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

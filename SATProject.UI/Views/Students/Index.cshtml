@@ -6,7 +6,9 @@
 
 <h1 class="mt-4">@ViewBag.Title</h1>
 
-<p>
+<a href=@Url.Action("Grid", "Students") class="btn btn-primary" style="width: 120px; float: right;">Grid View</a>
+
+<p class="mb-5">
     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
     {
         @Html.ActionLink("Create New", "Create")

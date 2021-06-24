@@ -46,7 +46,7 @@ namespace SATProject.DATA
         [StringLength(60, ErrorMessage = "Maximum length is 60 characters.")]
         public string Email { get; set; }
 
-        [Display(Name = "Photo URL")]
+        [Display(Name = "Student Photo")]
         [StringLength(100, ErrorMessage = "Maximum length is 100 characters.")]
         public string PhotoUrl { get; set; }
 
