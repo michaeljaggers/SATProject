@@ -18,8 +18,8 @@
     <div class="row">
         @foreach (var item in Model)
         {
-            <div class="col-lg-4">
-                <div class="card">
+            <div class="col-md-4">
+                <div class="card" style="max-width: 300px; margin: 0 auto 10px auto;">
                     <img src="~/Content/StudentImages/t_@item.PhotoUrl" alt="@item.FirstName" style="display: block; margin: 10px auto;" />
                     <h2 class="text-center">@Html.DisplayFor(modelItem => item.FirstName) <br /> @Html.DisplayFor(modelItem => item.LastName)</h2>
                     <h4 class="text-center">@Html.DisplayFor(modelItem => item.Major)</h4>
