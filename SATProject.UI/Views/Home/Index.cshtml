@@ -12,3 +12,9 @@
 </div>
 
 <h5 class="fst-italic text-center">Master the force on your schedule in only three months!</h5>
+
+@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <h3 class="text-center mt-4">Documentation</h3>
+    <img src="~/Content/Images/Documentation.jpg" style="display: block; width: 100%; max-width: 900px; margin: 0 auto;" title="Documentation" />
+}
