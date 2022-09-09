@@ -13,8 +13,21 @@
 
 <h5 class="fst-italic text-center">Master the force on your schedule in only three months!</h5>
 
-@if (Request.IsAuthenticated && User.IsInRole("Admin"))
-{
-    <h3 class="text-center mt-4">Documentation</h3>
-    <img src="~/Content/Images/Documentation.jpg" style="display: block; width: 100%; max-width: 900px; margin: 0 auto;" title="Documentation" />
+@{
+    if ( Request.IsAuthenticated && ( User.IsInRole("Admin") || ( User.IsInRole("Scheduling") ) ) )
+    {
+        <h3 class="text-center mt-4">Documentation</h3>
+        <img src="~/Content/Images/Documentation.jpg" style="display: block; width: 100%; max-width: 900px; margin: 0 auto;" title="Documentation" />
+    }
+    else
+    {
+        <h3 class="text-center mt-4">Get Started</h3>
+        <h5 class="text-center mt-4">Administrator Access</h5>
+        <p class="text-center"><strong>Username:</strong> admin@forcemail.com</p>
+        <p class="text-center"><strong>Password:</strong> P@ssw0rd</p>
+
+        <h5 class="text-center mt-4">Scheduling Access</h5>
+        <p class="text-center"><strong>Username:</strong> scheduling@forcemail.com</p>
+        <p class="text-center"><strong>Password:</strong> P@ssw0rd</p>
+    }
 }
